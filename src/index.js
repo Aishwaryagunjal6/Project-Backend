@@ -1,8 +1,6 @@
 // require(dotenv).config({path:'./env'}   this is not a good practice, hence the other approach is used
 
 import dontenv from 'dotenv'
-// import mongoose from 'mongoose'
-// import { DB_NAME } from './constants'
 import connectDB from './db/db.js'
 
 dontenv.config({ path: './env' })
@@ -34,3 +32,12 @@ const app = express()
 //second approach is to import the connectDB function from db.js
 
 connectDB()
+.then(()=>{
+  AudioParamMap.listen(process.env.PORT || 8000, ()=>{
+    console.log(`Server Running on Port: ${process.env.PORT}`)
+  })
+})  //return promises as connectDB has Async functions
+.catch((error)=>{
+  console.log("MongoDB connection Failed!!", error)
+})
+
