@@ -1,0 +1,14 @@
+mongoose agrregation quries are allowed by the package mongoose-aggregate-paginate-v2
+we have installed this package into our project and used it into the video.model.js file, I t is injected as a plugin into the code Schema
+
+
+there is a difference between bcrypt and bcryptJs. bcryptJs is used most commonly
+but here we will use core bcrypt in our project. It helps you to hash your password
+
+JsonWebToken is used to generate tokens. both jwt and bcrypt work based on cryptography
+Direct Encryption is not posiible hence we take help of some hooks given by mongoose, for example : pre (pre hook is a middleware which runs just before the data is getting saved)  (we have used this pre hook inside user.model.js to encrypt the password just before data gets saved)
+
+while using pre hooks for encyption, dont use arrow function as the arrow function has no context reference hence we cant use this keyword inside the arrow functions
+
+JWT is a bearer token like a key to database
+
