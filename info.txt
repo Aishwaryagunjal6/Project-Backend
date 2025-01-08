@@ -12,3 +12,59 @@ while using pre hooks for encyption, dont use arrow function as the arrow functi
 
 JWT is a bearer token like a key to database
 
+here we are using a third party app cloudinary to upload the files along with multer; we are taking a local files localFilePath using multer and then uploading it on the local server and then uploading it on the cloudinary for displayiing it
+
+
+HTTP protocol
+there is a difference of protocol inside the http and the https
+In case of the http protocol the data is posted in the form of the clear text but in case case of https protocol there is one more layer above the data. the data is encrypted before posting. 
+URL- Uniform Resource Locator
+URI- Uniform Resource Identifier
+URN- Uniform Resource Name
+
+Http Headers: HTTP headers are the metadata sent as a key value pair along with the response
+
+use of headers: caching(to see if the request is already existing in the database), Authentication, State management(Users state)
+
+Request Headers -> From Client
+Response Headers -> From server
+Representation Headers -> encoding/compression
+Pauload Headers -> data
+
+
+Most Common Headers
+Accept: applicataion/json
+User-Agent
+Authorization
+Content-Type
+
+
+Methods in HTTP:
+GET: retrieve a Resource
+HEAD: No message body, Response headers only
+OPTIONS: What operations are available
+TRACE: loopback test(get some data)
+DELETE: remove a Resource
+PUT: replace a Resource
+PATCH: Edit particular part of a Resource
+POST: interact with Resource
+
+
+HTTP Status Code:
+1XX - from (101 to 199) - Informational
+2XX - Success
+3XX - Redirection
+4XX - Client error
+5XX - Server error
+
+100 - continue
+102 - processing
+200 - ok
+201 - created
+202 - accepted
+307 - temporary Redirection
+308 - permanent Redirection
+400 - bad request
+404 - Not Found
+500 - internal server error
+
