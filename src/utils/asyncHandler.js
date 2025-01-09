@@ -1,7 +1,7 @@
 //given is the first approach used for handeling wrapper functions using promises.
 
 const asyncHandler = (fun)=> {
-  (req, res, next)=>{
+  return (req, res, next)=>{
     Promise.resolve(fun(req, res, next)).catch((err)=>next(err))
   }
 }
