@@ -4,7 +4,7 @@ import dontenv from 'dotenv'
 import connectDB from './db/db.js'
 import { app } from './app.js'
 
-dontenv.config({ path: './env' })
+dontenv.config({ path: './.env' })
 
 //first approach to connect database to the project
 /*

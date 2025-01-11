@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema(
 userSchema.pre("save", async function(next){
     if(!this.isModified("password")){ return next()  }  //return if password is not modified
     
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()   //save the password only if it is modified
 
 })// the pre hook is used on the 'save' event, hence the hook gets executed before data gets saved
