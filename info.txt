@@ -74,3 +74,7 @@ Every time while calling to database via any database model always remember that
 Thus always remember while contacting to the databse always use async and await
 
 
+AccessToken is generally Shortlived and the refreshToken is long lived.
+
+
+
