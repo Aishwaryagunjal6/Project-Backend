@@ -68,3 +68,9 @@ HTTP Status Code:
 404 - Not Found
 500 - internal server error
 
+
+
+Every time while calling to database via any database model always remember that the database exists in another continent hence it takes time to reavch to the database thus we always use await before calling to the database . 
+Thus always remember while contacting to the databse always use async and await
+
+

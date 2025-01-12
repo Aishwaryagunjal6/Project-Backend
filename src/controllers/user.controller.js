@@ -29,7 +29,7 @@ const registerUser = asyncHandler(async (req, res)=>{
   }
 
   //check for user already exists or not
-  const existedUser = User.findOne({
+  const existedUser = await User.findOne({
     $or: [{username}, {email}]  //check for if atleast the username or email exists
   })
 
@@ -41,7 +41,12 @@ const registerUser = asyncHandler(async (req, res)=>{
   //as we have used upload middleware inside the routes ehile accessing the imagefiles, the multer gives us file access also thus we can use req.files
 
   const avatarLocalPath = req.files?.avatar[0]?.path
-  const coverImageLocalPath = req.files?.coverImage[0]?.path
+  // const coverImageLocalPath = req.files?.coverImage[0]?.path   //this line gives error when coverImage is not given hence we need to check if coverImage is existing
+
+  let coverImageLocalPath;
+  if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0){
+    coverImageLocalPath = req.files.coverImage[0].path
+  }
 
   if(!avatarLocalPath){
     throw new ApiError(400, "Avatar is required!")
@@ -68,7 +73,7 @@ const registerUser = asyncHandler(async (req, res)=>{
 
   //check if user created successfully
 
-  const createdUser = await User.findById(user._id).seslect(
+  const createdUser = await User.findById(user._id).select(
     "-password -refreshToken"   //the password and refreshToken fields are removed from user object using select method
   )
 
